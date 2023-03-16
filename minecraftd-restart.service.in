@@ -1,10 +1,10 @@
 [Unit]
-Description=Weekly Gaia Forge Server Restart
+Description=Daily Gaia Forge Server Restart
 After=local-fs.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/@INAME@ backup
+ExecStart=/usr/bin/@INAME@ restart
 User=@GAME_USER@
 
 [Install]

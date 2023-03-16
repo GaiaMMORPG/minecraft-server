@@ -10,7 +10,7 @@ datarootdir = $(prefix)/share
 mandir = $(prefix)/share/man
 man1dir = $(mandir)/man1
 
-SOURCES = minecraftd.sh.in minecraftd.conf.in minecraftd.service.in minecraftd.sysusers.in minecraftd.tmpfiles.in minecraftd-backup.service.in minecraftd-backup.timer.in
+SOURCES = minecraftd.sh.in minecraftd.conf.in minecraftd.service.in minecraftd.sysusers.in minecraftd.tmpfiles.in minecraftd-backup.service.in minecraftd-backup.timer.in minecraftd-restart.service.in minecraftd-restart.timer.in
 OBJECTS = $(SOURCES:.in=)
 
 GAME = minecraft
@@ -90,6 +90,8 @@ install:
 	$(INSTALL_PROGRAM) -D minecraftd.sh "$(DESTDIR)$(bindir)/$(INAME)"
 	$(INSTALL_DATA) -D minecraftd.conf           "$(DESTDIR)$(confdir)/$(GAME)"
 	$(INSTALL_DATA) -D minecraftd.service        "$(DESTDIR)$(libdir)/systemd/system/$(INAME).service"
+	$(INSTALL_DATA) -D minecraftd-restart.service "$(DESTDIR)$(libdir)/systemd/system/$(INAME)-restart.service"
+	$(INSTALL_DATA) -D minecraftd-restart.timer   "$(DESTDIR)$(libdir)/systemd/system/$(INAME)-restart.timer"
 	$(INSTALL_DATA) -D minecraftd-backup.service "$(DESTDIR)$(libdir)/systemd/system/$(INAME)-backup.service"
 	$(INSTALL_DATA) -D minecraftd-backup.timer   "$(DESTDIR)$(libdir)/systemd/system/$(INAME)-backup.timer"
 	$(INSTALL_DATA) -D minecraftd.sysusers       "$(DESTDIR)$(libdir)/sysusers.d/$(INAME).conf"
@@ -99,6 +101,8 @@ uninstall:
 	rm -f "$(bindir)/$(INAME)"
 	rm -f "$(confdir)/$(GAME)"
 	rm -f "$(libdir)/systemd/system/$(INAME).service"
+	rm -f "$(libdir)/systemd/system/$(INAME)-restart.service"
+	rm -f "$(libdir)/systemd/system/$(INAME)-restart.timer"
 	rm -f "$(libdir)/systemd/system/$(INAME)-backup.service"
 	rm -f "$(libdir)/systemd/system/$(INAME)-backup.timer"
 	rm -f "$(libdir)/sysusers.d/$(INAME).conf"

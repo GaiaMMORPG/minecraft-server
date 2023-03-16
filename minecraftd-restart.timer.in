@@ -1,8 +1,8 @@
 [Unit]
-Description=Weekly Gaia Forge Server Restart
+Description=Daily Gaia Forge Server Restart
 
 [Timer]
-OnCalendar=Mon *-*-* 04:00:00
+OnCalendar=*-*-* 06:00:00
 AccuracySec=5min
 Persistent=true
 

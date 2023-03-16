@@ -263,11 +263,11 @@ server_stop() {
 		else
 			# Player(s) were seen on the server through list (or an error occurred)
 			# Warning the users through the server console
-			game_command say "Server is going down in 10 seconds! HURRY UP WITH WHATEVER YOU ARE DOING!"
+			game_command say "Les Terres des Dieux disparaissent. Vous avez 2 minutes pour vous déconnecter."
 			game_command save-all
 			echo -en "Server is going down in..."
 			for i in {1..10}; do
-				game_command say "down in... $(( 10 - i ))"
+				game_command say "Fermeture dans $(( 120 - i )) secondes."
 				echo -n " $(( 10 - i ))"
 				sleep 1
 			done

@@ -1,13 +1,18 @@
 [Unit]
-Description=@GAME@ Server
+Description=Gaia Forge Server
 After=local-fs.target network.target multi-user.target
+
+StartLimitIntervalSec=600
+StartLimitBurst=2
 
 [Service]
 Type=forking
 ExecStart=/usr/bin/@INAME@ start
 ExecStop=/usr/bin/@INAME@ stop
 User=@GAME_USER@
-Group=@GAME_USER@
+
+Restart=always
+RestartSec=30
 
 [Install]
 WantedBy=multi-user.target
