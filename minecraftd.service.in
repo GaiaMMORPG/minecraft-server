@@ -10,6 +10,7 @@ Type=forking
 ExecStart=/usr/bin/@INAME@ start
 ExecStop=/usr/bin/@INAME@ stop
 User=@GAME_USER@
+TimeoutSec=240
 
 Restart=always
 RestartSec=30
