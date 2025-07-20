@@ -3,7 +3,7 @@
 
 # General parameters
 SERVER_ROOT="/home/forge/GaiaForge"
-BACKUP_DEST=/mnt/games/forge/backups"
+BACKUP_DEST="/mnt/games/forge/backups"
 BACKUP_PATHS="gaia" # World paths separated by spaces relative to SERVER_ROOT
 BACKUP_FLAGS="-z"
 KEEP_BACKUPS="4"
